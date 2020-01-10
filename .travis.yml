@@ -1,24 +1,10 @@
 sudo: required
 language: cpp
 before_script:
-- pwd
-- sudo apt-get install libboost-test-dev libgtest-dev -y
-- sudo ln -s /usr/local/cmake-3.12.4/bin/cmake /usr/bin/cmake
-- sudo ln -s /usr/local/cmake-3.12.4/bin/cmake /bin/cmake
-- ls -la /usr/bin
-- ls -la /bin
-- cd /usr/src/gtest
-- sudo cmake CMakeLists.txt
-- sudo make
-- sudo cp *.a /usr/lib
-- sudo mkdir -p /usr/local/lib/gtest
-- sudo ln -s /usr/lib/libgtest.a /usr/local/lib/gtest/libgtest.a
-- sudo ln -s /usr/lib/libgtest_main.a /usr/local/lib/gtest/libgtest_main.a
+- sudo apt-get install libboost-test-dev libgtest-dev cmake -y
+- sudo ./gtest_install_script.sh
 - echo "deb http://archive.ubuntu.com/ubuntu xenial main universe" | sudo tee -a /etc/apt/sources.list
 - sudo apt-get update -qq
-- sudo rm /usr/bin/cmake
-- sudo rm /bin/cmake
-- cd ~
 script:
 - pwd
 - cmake .
