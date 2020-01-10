@@ -1,6 +1,7 @@
 language: cpp
 before_script:
 - sudo apt-get install libboost-test-dev libgtest-dev -y
+- sudo ls -la /usr/src
 - sudo mkdir /usr/src/googletest/build
 - sudo cd /usr/src/googletest/build
 - sudo cmake ..
