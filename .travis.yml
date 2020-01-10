@@ -17,6 +17,7 @@ before_script:
 - sudo apt-get update -qq
 - sudo rm /usr/bin/cmake
 - sudo rm /bin/cmake
+- cd ~
 script:
 - cmake .
 - cmake --build .
