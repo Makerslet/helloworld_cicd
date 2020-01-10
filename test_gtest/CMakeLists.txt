@@ -1,38 +1,38 @@
 cmake_minimum_required(VERSION 3.2)
 
-add_executable(test_version test_version.cpp)
+add_executable(test_version_gtest test_version_gtest.cpp)
 
 # включаем 14 стандарт для наших целей
-set_target_properties(test_version PROPERTIES
+set_target_properties(test_version_gtest PROPERTIES
     CXX_STANDARD 14
     CXX_STANDARD_REQUIRED ON
 )
 
-set_target_properties(test_version PROPERTIES
-    COMPILE_DEFINITIONS
-    BOOST_TEST_DYN_LINK
-    INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
-)
-
 # подключим инклуды из основного каталога проекта
-target_include_directories(test_version
+target_include_directories(test_version_gtest
     PRIVATE "${PROJECT_SOURCE_DIR}/src"
 )
 
-target_link_libraries(test_version
-    ${Boost_LIBRARIES}
+target_include_directories(test_version_gtest
+    PRIVATE ${GTEST_INCLUDE_DIRS}
+)
+
+target_link_libraries(test_version_gtest
+    gtest
+    gtest_main
+    pthread
     helloworld
 )
 
 # максимально строгие настройки компилятора
 if (MSVC)
-    target_compile_options(test_version PRIVATE
+    target_compile_options(test_version_gtest PRIVATE
         /W4
     )
 else ()
-    target_compile_options(test_version PRIVATE
+    target_compile_options(test_version_gtest PRIVATE
         -Wall -Wextra -pedantic -Werror
     )
 endif()
 
-add_test(test_version test_version)
+add_test(test_version_gtest test_version_gtest)

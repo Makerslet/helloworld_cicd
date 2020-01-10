@@ -11,10 +11,12 @@ endif()
 
 # поиск тестового фреймворка из состава буста
 find_package(Boost COMPONENTS unit_test_framework REQUIRED)
+find_package(GTest REQUIRED)
 
 # включаем тесты
 enable_testing()
 
 # подключаем тесты
 add_subdirectory(src)
-add_subdirectory(test)
+add_subdirectory(test_boost)
+add_subdirectory(test_gtest)
