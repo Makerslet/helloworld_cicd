@@ -1,6 +1,7 @@
 sudo: required
 language: cpp
 before_script:
+- pwd
 - sudo apt-get install libboost-test-dev libgtest-dev -y
 - sudo ln -s /usr/local/cmake-3.12.4/bin/cmake /usr/bin/cmake
 - sudo ln -s /usr/local/cmake-3.12.4/bin/cmake /bin/cmake
@@ -19,6 +20,7 @@ before_script:
 - sudo rm /bin/cmake
 - cd ~
 script:
+- pwd
 - cmake .
 - cmake --build .
 - cmake --build . --target test
