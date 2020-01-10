@@ -2,10 +2,7 @@ sudo: required
 language: cpp
 before_script:
 - sudo apt-get install libboost-test-dev libgtest-dev -y
-- cmake --version
-- whereis cmake
-- ls -la /usr/bin
-- sudo ls -la /usr/bin
+- sudo ln -s /usr/local/cmake /usr/bin/cmake
 - cd /usr/src/gtest
 - sudo cmake CMakeLists.txt
 - sudo make
