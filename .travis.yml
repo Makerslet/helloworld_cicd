@@ -4,9 +4,8 @@ before_script:
 - sudo apt-get install libboost-test-dev libgtest-dev -y
 - cmake --version
 - whereis cmake
-- sudo cmake --version
-- sudo whereis cmake
 - ls -la /usr/bin
+- sudo ls -la /usr/bin
 - cd /usr/src/gtest
 - sudo cmake CMakeLists.txt
 - sudo make
