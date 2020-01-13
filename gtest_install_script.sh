@@ -1,3 +1,4 @@
+sudo apt-get install libgtest-dev cmake -y
 cd /usr/src/gtest
 cmake CMakeLists.txt
 make

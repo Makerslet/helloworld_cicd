@@ -18,9 +18,8 @@ target_include_directories(test_version_gtest
 )
 
 target_link_libraries(test_version_gtest
-    gtest
-    gtest_main
-    pthread
+    ${GTEST_BOTH_LIBRARIES}
+    Threads::Threads
     helloworld
 )
 

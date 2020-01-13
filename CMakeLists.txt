@@ -11,6 +11,7 @@ endif()
 
 # поиск тестового фреймворка из состава буста
 find_package(Boost COMPONENTS unit_test_framework REQUIRED)
+find_package(Threads REQUIRED)
 find_package(GTest REQUIRED)
 
 # включаем тесты
